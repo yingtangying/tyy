@@ -21,7 +21,7 @@
             <td>{{product.productPrice}}</td>
             <td><input type="text" ng-model="product.productCount"></td>
             <td>{{product.productPrice * product.productCount}}</td>
-            <td><button class="btn btn-danger btn-sm">删除</button></td>
+            <td><button class="btn btn-danger btn-sm" ng-click="remove(product)">删除</button></td>
         </tr>
     </table>
 </div>
@@ -29,11 +29,24 @@
 <script>
     var app = angular.module('appModule',[]);
     app.controller('myCtrl',function ($scope) {
-        $scope.products = [
-            {productName:'机箱',productPrice:5888,productCount:1},
-            {productName:'鼠标',productPrice:3,productCount:1},
-            {productName:'电视',productPrice:1000,productCount:1},
-        ];
+        //localStorage
+        if(localStorage.getItem('products')){
+            //先获取本地内容，如果有
+            $scope.products = JSON.parse(localStorage.getItem('products'));
+        }else{
+            $scope.products = [
+                {productName:'机箱',productPrice:5888,productCount:1},
+                {productName:'鼠标',productPrice:3,productCount:1},
+                {productName:'电视',productPrice:1000,productCount:1},
+            ];
+            localStorage.setItem('products',JSON.stringify($scope.products));
+        }
+        $scope.remove = function (p) { //splice => filter过滤，如果遇到不想要的返回false即可,返回新数组
+            $scope.products = $scope.products.filter(function (item) {
+               return  item != p;//返回false表示当前项移除掉
+            });
+            localStorage.setItem('products',JSON.stringify($scope.products));
+        };
     });
 </script>
 </body>
