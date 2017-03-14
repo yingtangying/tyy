@@ -6,7 +6,8 @@
 </head>
 <body>
 <div ng-controller="myCtrl">
-    <button ng-mouseover="say()">点我啊</button>
+
+    <button ng-click="say($event,'你好')" id="btn">点我啊</button>
 </div>
 <script src="node_modules/angular/angular.js"></script>
 <script>
@@ -14,10 +15,13 @@
     app.controller('myCtrl',['$scope',function ($scope) {
         //要在视图上取出数据 必须将数据挂载$scope上
         $scope.a = 100;
-        $scope.say = function() {//在作用域上定义函数，在页面上用ng- + 事件名的方式执行
-            console.log(this==$scope);
-            alert('hello');
-        }
+        //如果想获取事件源  需要出传递$event
+        $scope.say = function(e,who) {//在作用域上定义函数，在页面上用ng- + 事件名的方式执行
+            console.log(e);
+            //console.log(this==$scope);
+            alert(who);
+        };
+        //对象数据类型
     }]);
 </script>
 </body>

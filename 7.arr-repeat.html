@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训http://www.zhufengpeixun.cn</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<!--
+    默认颜色 default 灰色
+    danger 红色
+    warning 黄色
+    primary 蓝色
+    info 浅蓝色
+    success 绿色
+-->
+<div ng-controller="myCtrl">
+    <!--{{foods[0].name}}  [{name:1}]-->
+    <ul class="list-group">
+        <!--遍历时会产生作用域，如果不产生？-->
+        <!--(key,value) in arrs 这个key是我们显示声明出来的 $index是angular提供给我们的-->
+        <li class="list-group-item" ng-repeat="(parent,food) in foods track by parent">
+            <div class="text-danger h2">{{$index+1}} {{food.name}}</div>
+            <ul class="list-group">
+                <li class="list-group-item text-center" ng-repeat="(child,a) in food.type track by child">
+                    {{parent+1}}.{{$index+1}} {{a}}
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li ng-repeat="(key,o) in obj">{{key}}:{{o}}</li>
+    </ul>
+</div>
+<script src="node_modules/angular/angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.controller('myCtrl',['$scope',function ($scope) {
+        $scope.foods = [
+            {name:'馒头',type:["糯米的","苞米面","白面的"]},
+            {name:'蔬菜类',type:["白菜","辣椒"]}
+        ];
+        $scope.obj = {name:'zfpx',age:8,address:'回龙观'}
+    }]);
+
+</script>
+</body>
+</html>

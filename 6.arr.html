@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训http://www.zhufengpeixun.cn</title>
+</head>
+<body ng-controller="myCtrl">
+<!--{{arr}} =>  ul>li*5-->
+<!--要循环谁 就写在谁的身上                $event事件源-->
+<input type="text" ng-keyup="addNumber($event)" ng-model="n">
+<ul>
+    <!--ng-repeat="变量(数组中的value值) in 数据中" $index 索引（只要是数组 就通过索引来遍历）-->
+    <li ng-repeat="a in arr track by $index">{{a}}</li>
+</ul>
+<script src="node_modules/angular/angular.js"></script>
+<script>
+    //angular的核心是数据，数据更改视图会自动刷新
+    var app = angular.module("appModule",[]);
+    app.controller('myCtrl',["$scope",function ($scope) {
+        $scope.arr = [1,2,3];
+        $scope.addNumber = function (e) { //添加数字
+            var keyCode = e.keyCode; //判断keycode
+            if(keyCode == 13){
+                $scope.arr.unshift($scope.n);
+                $scope.n = '';
+            }
+        }
+    }]);
+</script>
+</body>
+</html>

@@ -5,9 +5,17 @@
     <title>珠峰培训http://www.zhufengpeixun.cn</title>
 </head>
 <body>
-<button onclick="say()" id="btn">点我啊</button>
+
+<button onclick="say(event)" id="btn">点我啊</button>
 <script>
-    function say() {
+    console.log(btn.onclick);
+    /*
+    * function onclick(event) { 当点击时 会触发onclick函数
+         say()
+         }
+    * */
+    function say(e) {
+        console.log(e);
         alert('hello')
     }
 </script>
