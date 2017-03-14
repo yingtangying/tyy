@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--ng- 代表的是angular的自带指令-->
+<!--增加ng-app后会生成一个根作用域$rootScope-->
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训http://www.zhufengpeixun.cn</title>
+</head>
+<body>
+<!--1.修改视图影响数据 ng-model表示双向数据绑定，而且只能加在表单元素上-->
+<input type="text" ng-model="name">
+<!--ng-model可以绑定一个变量名。-->
+<!--<div contenteditable="true">1111</div>可编辑div也不能增加ng-model-->
+
+<!--2.数据变化，视图也要发生改变 {{}}可以将作用域上的变量取出来-->
+{{name}}
+
+<!--告诉angular开始执行,在想要执行范围的标签上增加ng-app-->
+<script src="node_modules/angular/angular.js"></script>
+<script>
+    //会在window上声明一个angular对象
+    console.log(angular);
+</script>
+</body>
+</html>
