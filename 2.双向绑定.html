@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训http://www.zhufengpeixun.cn</title>
+</head>
+
+<body>
+<!--ng-model只能放变量-->
+<input type="text" ng-model="name">
+<!--表达式 可以支持赋值运算，可以写三元运算符，可以运算变量+-*/-->
+<!--{{name?name:'hello zfpx'}}-->
+<!--{{}}闪烁问题 ng-bind等价于{{}}，{{}}是ng-bind的简写，解决某个变量闪烁问题-->
+<span ng-bind="name?name:'hello zfpx'"></span>
+<!--解决成段代码的闪烁问题 先让带有ng-cloak的标签隐藏，当数据编译好后会自动移除掉ng-cloak属性-->
+<style>
+    /*属性选择器*/
+    [ng-cloak]{display: none}
+</style>
+<ul ng-cloak>
+    <li>
+        {{name}} {{name}}
+        <ul>
+            <li>{{name}} {{name}}</li>
+        </ul>
+    </li>
+</ul>
+<!--模块化 自动给你实现了模块化-->
+<script src="node_modules/angular/angular.js"></script>
+</body>
+</html>

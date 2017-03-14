@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--指定启动的模块是zfModule-->
+<html lang="en" ng-app="zfModule">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训http://www.zhufengpeixun.cn</title>
+</head>
+<body>
+<!--控制器的作用范围和标签的范围相同-->
+<div ng-controller="oneCtrl">{{name}}</div>
+<div ng-controller="twoCtrl">{{name}}</div>
+<script src="node_modules/angular/angular.min.js"></script>
+<script>
+    //1.模块的名字 2.模块的依赖（默认写[]） 3.配置函数
+    //一切从模块开始
+    var app = angular.module('zfModule',[]); //声明模块,app代表的是当前模块
+    //1.控制器的名字 2.控制器的一个定义,买一送一 送一个$scope
+    app.controller('oneCtrl',function ($scope) {
+        $scope.name = 'zfpx';
+    });
+    app.controller('twoCtrl',function ($scope) {
+        $scope.name = 'zf';
+    });
+</script>
+</body>
+</html>
