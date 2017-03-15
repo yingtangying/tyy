@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训http://www.zhufengpeixun.cn</title>
+</head>
+<body>
+<!--大小写-->
+{{"asdasd" | uppercase}} <br>
+{{"AASDASD"| lowercase}} <br>
+<!--货币过滤器 默认在最前面增加$符号-->
+{{"123123.123"| currency:'￥':3}} <br>
+<!--限制过滤器-->
+{{"你好吗" | limitTo:2}} <br>
+<!--json过滤器-->
+<pre>{{ {name:1,age:4} | json:4 }}</pre>
+<!--number过滤器-->
+{{123123|number}}
+<!--日期过滤器-->
+{{1489568089171 | date:"yyyy年MM月 hh:mm:ss"}}
+
+<!--orderBy排序 filter过滤器 -->
+
+
+
+<script src="node_modules/angular/angular.js"></script>
+<script>
+    //内置过滤器 9个  自定义过滤器
+    var app = angular.module('appModule',[]);
+</script>
+</body>
+</html>

@@ -27,7 +27,7 @@
             <button ng-click="product.productCount=product.productCount+1">+</button>
         </td>
         <td>{{product.productPrice*product.productCount}}</td>
-        <td><button class="btn btn-danger">删除</button></td>
+        <td><button class="btn btn-danger" ng-click="remove(product)">删除</button></td>
     </tr>
     <tr>
         <td colspan="6">
@@ -35,7 +35,7 @@
             总费用：{{total()}}
             <!--分为两步 dis.value给的是程序员看到的 dis.name给客户端看的 赋予默认值必须是字符串 -->
             <!--<select ng-model="sel">
-                <option   value="{{dis.value}}" ng-repeat="dis in discount track by $index">
+                <option value="{{dis.value}}" ng-repeat="dis in discount track by $index">
                     {{dis.name}}
                 </option>
             </select>-->
@@ -70,7 +70,13 @@
             {productName:'鼠标很棒很不错非常哈特别',productPrice:3,productCount:1,isSelected:true},
             {productName:'电视很棒很不错非常哈特别',productPrice:1000,productCount:1,isSelected:true},
         ];
-        $scope.discount = [{value:0.1,name:'打一折'},{value:0.2,name:'打二折'},{value:0.3,name:'打三折'}]
+        //删除
+        $scope.remove = function (p) {
+            $scope.products = $scope.products.filter(function (item) {
+                return p!=item;//返回false表示当前项移除掉
+            });
+        };
+        $scope.discount = [{value:0.1,name:'打一折'},{value:0.2,name:'打二折'},{value:0.3,name:'打三折'}];
         $scope.sel = 0.2;
         $scope.reset = function () { //重置
             $scope.book = {};

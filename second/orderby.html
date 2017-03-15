@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训http://www.zhufengpeixun.cn</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<table class="table-bordered table">
+    <tr>
+        <th>姓名</th>
+        <th>英语</th>
+        <th>语文</th>
+        <th>数学</th>
+    </tr>
+    <!--根据的是当前遍历对象上拥有的属性 第三个参数代表的是 是否降序 true代表的是降序-->
+    <tr ng-repeat="stu in students | orderBy:language:flag track by $index">
+        <td>{{stu.name}}</td>
+        <td>{{stu.english}}</td>
+        <td>{{stu.chinese}}</td>
+        <td>{{stu.math}}</td>
+    </tr>
+</table>
+<script src="node_modules/angular/angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.run(['$rootScope',function ($rootScope) {
+        $rootScope.students = [
+            {name:'张三',english:86,chinese:77,math:23},
+            {name:'李四',english:30,chinese:30,math:130},
+            {name:'王五',english:88,chinese:46,math:99},
+            {name:'赵六',english:95,chinese:82,math:62}
+        ];
+    }])
+</script>
+</body>
+</html>
