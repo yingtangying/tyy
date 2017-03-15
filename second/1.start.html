@@ -8,6 +8,13 @@
 <input type="text" ng-model="person.name">
 <script src="node_modules/angular/angular.js"></script>
 <script>
+    var arr = [{name:1,age:2},{name:2,age:3},{name:2,age:3,gender:1}];
+    var obj = arr.find(function (item,index) {
+        return item.name == 2;//如果找到返回true即可，会将item返回回去,不会继续执行
+    });
+    console.log(obj);
+
+
     //想将数组为2的改成100
     var newArr = [1,2,3,2,2,2].map(function (item,index) {
         if(item == 2){

@@ -105,6 +105,16 @@ var newArr = [1,2,3,2,2,2].map(function (item,index) {
 console.log(newArr);
 ``` 
 
+### find数组的方法
+"查找"es6,找到后不会继续查找，返回找到的那一项
+```
+var arr = [{name:1,age:2},{name:2,age:3},{name:2,age:3,gender:1}];
+var obj = arr.find(function (item,index) {
+    return item.name == 2;//如果找到返回true即可，会将item返回回去,不会继续执行
+});
+``` 
+
+
 
 ## 更新老师代码
 第一步
@@ -114,4 +124,14 @@ git clone 地址 文件夹的名字
 第二步
 ```
 cd 文件夹的名字
+```
+第三步，拉取代码
+```
+git pull 如果更改先提交你的更改 
+git add .
+git commit -m ''如果报错
+git config --global user.name 'youname' 
+git config --global user.email 'youremail'
+
+写esc :wq
 ```
