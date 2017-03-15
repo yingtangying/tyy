@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <title>珠峰培训http://www.zhufengpeixun.cn</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        [ng-cloak]{
+            display: none;
+        }
+    </style>
 </head>
-<body>
-<table class="table-bordered table">
+<body ng-cloak>
+<!--延迟刷新数据 数据确定下来 过两秒刷新  ng-model-options="{debounce:500}"-->
+<!--失去焦点刷新数据 -->
+<input type="text" ng-model="query" ng-model-options="{updateOn:'blur'}">
+<table class="table-bordered table" >
     <tr>
         <th>姓名</th>
-        <th>英语</th>
-        <th>语文</th>
-        <th>数学</th>
+        <th ng-click="language='english';flag=!flag">英语</th>
+        <th ng-click="language='chinese';flag=!flag">语文</th>
+        <th ng-click="language='math';flag=!flag">数学</th>
     </tr>
     <!--根据的是当前遍历对象上拥有的属性 第三个参数代表的是 是否降序 true代表的是降序-->
-    <tr ng-repeat="stu in students | orderBy:language:flag track by $index">
+    <!--filter可以指定查询{字段:查询条件} ，默认是全部-->
+    <tr ng-repeat="stu in students | orderBy:language:flag |filter:{english:query} track by $index">
         <td>{{stu.name}}</td>
         <td>{{stu.english}}</td>
         <td>{{stu.chinese}}</td>
