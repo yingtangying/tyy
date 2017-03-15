@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训http://www.zhufengpeixun.cn</title>
+</head>
+<body>
+<select id="select">
+    <option value="0">北京</option>
+    <option value="1">上海</option>
+    <option value="2">广州</option>
+</select>
+<script>
+    //select没有value,获取的是select的value值
+    var oSel = document.getElementById('select');
+    oSel.onchange = function () {
+        alert(this.value);
+    };
+</script>
+</body>
+</html>

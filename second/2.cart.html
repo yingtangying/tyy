@@ -17,7 +17,7 @@
     </tr>
     <tr ng-repeat="product in products track by $index">
         <td><input type="checkbox" ng-model="product.isSelected" ng-click="selectOne()"></td>
-        <td>{{product.productName}}</td>
+        <td>{{product.productName | limitTo:'4'}}</td>
         <td>{{product.productPrice}}</td>
         <td>
             <button ng-click="product.productCount=product.productCount-1"
@@ -33,19 +33,58 @@
         <td colspan="6">
             <!--任何数据发生变化都会触发total执行-->
             总费用：{{total()}}
+            <!--分为两步 dis.value给的是程序员看到的 dis.name给客户端看的 赋予默认值必须是字符串 -->
+            <!--<select ng-model="sel">
+                <option   value="{{dis.value}}" ng-repeat="dis in discount track by $index">
+                    {{dis.name}}
+                </option>
+            </select>-->
+            <!--程序员看到的 as  客户端看到的 for 单个 in 多个(angular 推荐的)-->
+            <select ng-model="sel" ng-options="dis.value as dis.name for dis in discount"></select>
+            折后价格:{{total()*sel | currency:'￥'}}
         </td>
     </tr>
 </table>
+<form role="form" >
+    <div class="form-group">
+        <label for="bookname" class="control-label">书名</label>
+        <input type="text" id="bookname" class="form-control" ng-model="book.productName">
+    </div>
+    <div class="form-group">
+        <label for="bookprice" class="control-label">价格</label>
+        <input type="text" id="bookprice" class="form-control"  ng-model="book.productPrice">
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" type="button" ng-click="addBook()">添加</button>
+        <button class="btn btn-warning" type="reset" ng-click="reset()">重置</button>
+    </div>
+</form>
+
 <script src="node_modules/angular/angular.js"></script>
 <script>
     var app = angular.module('appModule',[]);
     app.controller('myCtrl',['$scope',function ($scope) {
         //所有数据都是挂在在$scope上的属性，不会预解释
         $scope.products = [
-            {productName:'机箱',productPrice:5888,productCount:1,isSelected:true},
-            {productName:'鼠标',productPrice:3,productCount:1,isSelected:true},
-            {productName:'电视',productPrice:1000,productCount:1,isSelected:true},
+            {productName:'机箱很棒很不错非常哈特别',productPrice:5888,productCount:1,isSelected:true},
+            {productName:'鼠标很棒很不错非常哈特别',productPrice:3,productCount:1,isSelected:true},
+            {productName:'电视很棒很不错非常哈特别',productPrice:1000,productCount:1,isSelected:true},
         ];
+        $scope.discount = [{value:0.1,name:'打一折'},{value:0.2,name:'打二折'},{value:0.3,name:'打三折'}]
+        $scope.sel = 0.2;
+        $scope.reset = function () { //重置
+            $scope.book = {};
+        };
+        $scope.addBook = function () {//添加商品
+            //添加商品时要判断 必须输入价格和名称
+            //将对象转化成数组
+            if($scope.book&&Object.keys($scope.book).length==2){
+                $scope.book.productCount = 1;
+                $scope.book.isSelected = true;
+                $scope.products.push($scope.book);
+                $scope.book = {}; //填写完后 改变援用的指向
+            }
+        };
         $scope.total = function () {
             var sum = 0;
             $scope.products.forEach(function (item) {
