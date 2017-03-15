@@ -104,3 +104,14 @@ var newArr = [1,2,3,2,2,2].map(function (item,index) {
 });
 console.log(newArr);
 ``` 
+
+
+## 更新老师代码
+第一步
+```
+git clone 地址 文件夹的名字
+```
+第二步
+```
+cd 文件夹的名字
+```
