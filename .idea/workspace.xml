@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f2d6b2b-1ba5-46ea-a1a3-6be7884d2a54" name="Default" comment="an">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/second/5.自定义过滤器.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/second/orderby.html" afterPath="$PROJECT_DIR$/second/orderby.html" />
     </list>
     <list id="c0f6ef4c-199e-49ee-8889-6be9292c181e" name="New changelist" comment="" />
     <ignored path="201615node.iws" />
@@ -73,8 +71,8 @@
       <file leaf-file-name="5.自定义过滤器.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/second/5.自定义过滤器.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+            <state relative-caret-position="352">
+              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -263,7 +261,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../es1" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
@@ -346,7 +344,7 @@
       <option name="presentableId" value="Default" />
       <updated>1489455638374</updated>
       <workItem from="1489455639705" duration="25169000" />
-      <workItem from="1489541568532" duration="23315000" />
+      <workItem from="1489541568532" duration="23583000" />
     </task>
     <task id="LOCAL-00001" summary="angular">
       <created>1489460032663</created>
@@ -359,7 +357,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48484000" />
+    <option name="totallyTimeSpent" value="48752000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1046" extended-state="6" />
@@ -659,8 +657,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/second/5.自定义过滤器.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        <state relative-caret-position="352">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
           <folding />
         </state>
       </provider>

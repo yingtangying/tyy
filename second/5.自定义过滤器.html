@@ -7,18 +7,29 @@
 <body>
 {{"hello" | capitalized}}
 <!--实现首字母大写-->
-{{"welcome, to bei-jing" | multiFirstAlterUppercase}}
+{{"   welcome, to bei-jing   " | multiFirstAlterUppercase}}
 <!--实现多个单词首字母写-->
 <script src="node_modules/angular/angular.js"></script>
 <script>
+    //byClassName
     var app = angular.module('appModule',[]);
+    app.filter('multiFirstAlterUppercase',function(){
+        return function(input){
+            //  /^\w|\s\w/ /\b\w/
+            input = input.replace(/^\w|\s\w/g,function(){
+                return arguments[0].toUpperCase();//将匹配到的内容转换成大写
+            });
+            return input;//返回的是最终的结果
+        }
+    });
+
     app.filter('capitalized',function () {
        return function (input) {//1.param1代表的是要过滤的数据
            //取出除了第一个的所有的参数的集合[]
            //console.log([].slice.call(arguments,1));
            //console.log(Array.from(arguments).slice(1));//类数组转换成数组
            //console.log(o);//...o
-           return ;//最终显示到页面上的数据
+           return  input[0].toUpperCase()+input.slice(1);//最终显示到页面上的数据
        }
     });
 </script>
